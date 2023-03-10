@@ -7,6 +7,8 @@ public class WheelBase : MonoBehaviour
     public WheelCollider wheelCollider;
     public Transform wheelModel;
 
+    public bool frontWheel;
+
     private void Update()
     {
         Vector3 pos;
