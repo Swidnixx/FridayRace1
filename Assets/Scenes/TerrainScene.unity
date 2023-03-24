@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3459517218172161936, guid: ed4aaad7153bf4d43825ba548724ab5a, type: 3}
-      propertyPath: engineAudioSource
-      value: 
-      objectReference: {fileID: 243962824}
     - target: {fileID: 3459517218835391605, guid: ed4aaad7153bf4d43825ba548724ab5a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -182,17 +178,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarObject
       objectReference: {fileID: 0}
-    - target: {fileID: 3459517219481070330, guid: ed4aaad7153bf4d43825ba548724ab5a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.137001
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed4aaad7153bf4d43825ba548724ab5a, type: 3}
---- !u!82 &243962824 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4316308615398541079, guid: ed4aaad7153bf4d43825ba548724ab5a, type: 3}
-  m_PrefabInstance: {fileID: 175950552}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &562442053
 GameObject:
   m_ObjectHideFlags: 0

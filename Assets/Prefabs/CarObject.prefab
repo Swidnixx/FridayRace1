@@ -675,7 +675,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3459517219481070331}
   m_LocalRotation: {x: 0.13699895, y: -0, z: -0, w: 0.9905712}
-  m_LocalPosition: {x: 0, y: 4.62, z: -10.137}
+  m_LocalPosition: {x: 0, y: 4.62, z: -10.137001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -962,6 +962,10 @@ MonoBehaviour:
   centerOfMass: {fileID: 3459517218389785138}
   maxSpeed: 90
   backLights: {fileID: 1610681656049424705}
+  engineAudioSource: {fileID: 4316308615398541079}
+  gearChangeTime: 2.5
+  minPitch: 0.55
+  maxPitch: 0.9
 --- !u!114 &11204559838399548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,7 +1023,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a6e716893630f7b4093e902b2f70a9c5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.489
   m_Pitch: 1
   Loop: 1
   Mute: 0
