@@ -13,6 +13,7 @@ public class PlayerSpawner : MonoBehaviour
         for(int i=0; i<playerCount; i++)
         {
             var car = Instantiate(carPrefab, spawnPos[i].position, spawnPos[i].rotation);
+            car.GetComponent<CarAppearance>().SetPlayerNumber(i);
             if(i == 0)
             {
                 car.GetComponent<PlayerController>().enabled = true;
