@@ -1046,8 +1046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52642c8cc279b44960e71069d2f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: player1
-  playerColor: {r: 0.5287838, g: 0.2980392, b: 1, a: 1}
   nameText:
   - {fileID: 613233564}
   - {fileID: 1692841540}
