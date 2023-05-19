@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Photon.Pun;
 
-public class CarAppearance : MonoBehaviour
+public class CarAppearance : MonoBehaviourPunCallbacks
 {
     public TextMeshProUGUI[] nameText;
     public MeshRenderer carRenderer;
@@ -15,15 +16,16 @@ public class CarAppearance : MonoBehaviour
 
     private void Start()
     {
-        if (playerNumber == 0)
+        if (photonView.IsMine)
         {
             playerName = PlayerPrefs.GetString("Nick");
             playerColor = new Color(PlayerPrefs.GetFloat("R"), PlayerPrefs.GetFloat("G"), PlayerPrefs.GetFloat("B")); 
         }
         else
         {
-            playerName = "Random" + playerNumber;
-            playerColor = Color.white;
+            object[] instanceData = photonView.InstantiationData;
+            playerName = (string)instanceData[0];
+            playerColor = new Color( (float)instanceData[1], (float)instanceData[2], (float)instanceData[3] );
         }
 
         foreach (var text in nameText)

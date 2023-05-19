@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,8 +6,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class RaceController : MonoBehaviour
+public class RaceController : MonoBehaviourPunCallbacks
 {
+    public static event Action RaceStarted;
+
     public static bool racePending;
     public readonly static int totalLaps = 1;
 
@@ -18,13 +21,16 @@ public class RaceController : MonoBehaviour
 
     CheckpointController[] controllers;
 
-    private void Start()
+    public void StartRaceButton()
     {
-        StartRace();
+        photonView.RPC( nameof(StartRace), RpcTarget.All, null);
     }
 
+    [PunRPC]
     void StartRace()
     {
+        RaceStarted?.Invoke();
+
         startPanel.SetActive(true);
         finishPanel.SetActive(false);
 
@@ -53,6 +59,8 @@ public class RaceController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!racePending) return;
+
         int finishers = 0;
 
         foreach(var c in controllers)
