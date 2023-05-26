@@ -7,6 +7,7 @@ using Photon.Pun;
 
 public class CarAppearance : MonoBehaviourPunCallbacks
 {
+    public CheckpointController ckpController;
     public TextMeshProUGUI[] nameText;
     public MeshRenderer carRenderer;
 
@@ -34,6 +35,14 @@ public class CarAppearance : MonoBehaviourPunCallbacks
             text.color = playerColor; 
         }
         carRenderer.material.color = playerColor;
+
+        //Leaderboard register
+        playerNumber = Leaderboard.Register(playerName);
+    }
+
+    private void Update()
+    {
+        Leaderboard.SetStatus( playerNumber, ckpController.Lap, ckpController.Checkpoint);
     }
 
     public void SetPlayerNumber(int number)

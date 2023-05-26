@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointController : MonoBehaviour
 {
     public int Lap { get { return lap; } }
+    public int Checkpoint {  get { return checkpoint; } }
     public Transform LastCheckpoint { get; private set; }
 
     [SerializeField] int lap = 0;

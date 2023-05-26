@@ -24,6 +24,7 @@ public class RaceController : MonoBehaviourPunCallbacks
     public void StartRaceButton()
     {
         photonView.RPC( nameof(StartRace), RpcTarget.All, null);
+        PhotonNetwork.CurrentRoom.IsOpen = false;
     }
 
     [PunRPC]
@@ -83,6 +84,6 @@ public class RaceController : MonoBehaviourPunCallbacks
 
     public void RestartRace()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

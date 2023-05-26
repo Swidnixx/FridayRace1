@@ -19,6 +19,11 @@ public class PlayerSpawner : MonoBehaviour
         RaceController.RaceStarted += OnRaceStarted;
     }
 
+    private void OnDestroy()
+    {
+        RaceController.RaceStarted -= OnRaceStarted;
+    }
+
     void OnRaceStarted()
     {
         roomInfoPanel.SetActive(false);
@@ -42,8 +47,8 @@ public class PlayerSpawner : MonoBehaviour
             0, instanceData
             );
 
-        car.GetComponent<PlayerController>().enabled = true;
-        GameObject.FindObjectOfType<CameraController>().SetCameraToCar(car.transform); // (!error) <-- CarObject but should be CarBody
+        car.GetComponent<PlayerController>().ActivateLocally();
+        GameObject.FindObjectOfType<CameraController>().SetCameraToCar(car.transform.GetChild(0));
 
         if(PhotonNetwork.IsMasterClient)
         {
