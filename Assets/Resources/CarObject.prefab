@@ -828,6 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52642c8cc279b44960e71069d2f192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ckpController: {fileID: 6005296341939331898}
   nameText:
   - {fileID: 6005296342661196529}
   - {fileID: 6005296341585915689}

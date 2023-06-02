@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class Leaderboard : MonoBehaviour
         }
     }
 
+
+
     static List<Player> playerPositions = new List<Player>();
     internal static int Register(string playerName)
     {
@@ -35,13 +38,32 @@ public class Leaderboard : MonoBehaviour
 
     internal static void SetStatus(int playerNumber, int lap, int checkpoint)
     {
-        throw new NotImplementedException();
+        playerPositions[playerNumber].SetScore(lap, checkpoint);
+    }
+
+    private List<string> GetPlayerLeaderboard()
+    {
+        return playerPositions.OrderByDescending(p => p.Score).Select(p => p.Name).ToList();
     }
 
     class Player
     {
+        public int Score => score;
+        public string Name => name;
+
         string name;
         int score;
-    }
 
+        public Player(string nickname)
+        {
+            name = nickname;
+            score = 0;
+        }
+
+
+        internal void SetScore(int lap, int checkpoint)
+        {
+            score = lap * 1000 + checkpoint * 1;
+        }
+    }
 }

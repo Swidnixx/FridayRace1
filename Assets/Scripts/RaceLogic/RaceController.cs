@@ -19,6 +19,7 @@ public class RaceController : MonoBehaviourPunCallbacks
     public TextMeshProUGUI startText;
     public GameObject finishPanel;
 
+    public PlayerSpawner playerSpawner;
     CheckpointController[] controllers;
 
     public void StartRaceButton()
@@ -30,6 +31,7 @@ public class RaceController : MonoBehaviourPunCallbacks
     [PunRPC]
     void StartRace()
     {
+        timer = 3;
         RaceStarted?.Invoke();
 
         startPanel.SetActive(true);
@@ -84,6 +86,18 @@ public class RaceController : MonoBehaviourPunCallbacks
 
     public void RestartRace()
     {
-         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        photonView.RPC(nameof(Respawn), RpcTarget.All, null);
+    }
+
+    [PunRPC]
+    void Respawn()
+    {
+        finishPanel.SetActive(false);
+        playerSpawner.RespawnLocalPlayer();
+
+        foreach (var c in controllers)
+        {
+            c.Reset();
+        } 
     }
 }

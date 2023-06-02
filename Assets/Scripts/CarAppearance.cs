@@ -44,9 +44,4 @@ public class CarAppearance : MonoBehaviourPunCallbacks
     {
         Leaderboard.SetStatus( playerNumber, ckpController.Lap, ckpController.Checkpoint);
     }
-
-    public void SetPlayerNumber(int number)
-    {
-        playerNumber = number;
-    }
 }

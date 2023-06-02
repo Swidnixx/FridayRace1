@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,5 +50,12 @@ public class CheckpointController : MonoBehaviour
                 nextCheckpoint = nextCheckpoint % checkpointCount;
             }
         }
+    }
+
+    internal void Reset()
+    {
+        lap = 0;
+        checkpoint = -1;
+        nextCheckpoint = 0;
     }
 }
